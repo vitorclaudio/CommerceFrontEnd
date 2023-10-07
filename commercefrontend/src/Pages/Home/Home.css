@@ -1,0 +1,82 @@
+.app-container {
+    font-family: 'Arial';
+}
+.firstCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.firstCard-text-section {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.firstCard-image-section {
+    flex: 1;
+}
+
+.headerText {
+   font-size: 13px;
+}
+
+.headerTextInscrevaSe {
+    font-size: 13px;
+    margin-left: 15px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D7FEC9;
+}
+.header button {
+    padding: 3px 23px;
+    background-color: #272626;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+
+    border-radius: 5px;
+    margin-right: 5px;
+}
+header h1 {
+    font-size: 24px;
+}
+
+header nav a {
+
+    text-decoration: none;
+    color: #333;
+}
+
+.catalog-section {
+
+    background-color: #D7FEC9;
+    padding: 20px;
+    text-align: center;
+    border-bottom-right-radius: 70px;
+
+}
+
+.catalog-section button {
+    padding: 10px 20px;
+    background-color: #1C1C1A;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
