@@ -1,5 +1,9 @@
+
 .app-container {
     font-family: 'Arial';
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .firstCard-text-section {
@@ -63,18 +67,21 @@ header nav a {
 
 .second-card {
     align-items: center;
-    margin-top: 20px;
     display: flex;
-    flex-direction: column;  /* stacks the children vertically */
-    justify-content: center;  /* centers the children vertically */
-    align-items: center;  /* centers the children horizontally */
-    height: 100%;  /* or give a specific height */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
 }
+
+
 
 .secondCard-text-title{
     font-size: 20px;
     font-weight: bold;
     color: #129666;
+    margin-top: 10px;
 }
 .secondCard-text-subtitle{
     margin-top: 10px;
@@ -86,13 +93,13 @@ header nav a {
 .secondCard-image-container {
     border-radius: 26px;
     margin-top: 30px;
-    width: 400px;  /* size of the square */
+    width: 90%;
     height: 200px;
     background-color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;  /* this ensures the image does not spill out of the square */
+    overflow: hidden;
 
 }
 .secondCard-text-section {
@@ -102,18 +109,18 @@ header nav a {
 
 .secondCard-text-section-title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 15px;
 }
 .secondCard-text-section-description {
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 15px;
     font-weight: normal;
 
 }
 
 .secondCard-contained-image {
-    max-width: 100%;  /* ensures the image does not exceed the square's dimensions */
+    max-width: 90%;
     height: 90%;
     margin-left: 10px;
 }
@@ -127,32 +134,143 @@ header nav a {
 }
 
 footer {
-    padding: 20px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
     background-color: #f5f5f5;
 }
 
-footer a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-}
+
+
 
 .image-container {
     margin-top:50px;
-    width: 200px;  /* size of the square */
+    width: 200px;
     height: 200px;
     background-color: #D9D9D9;
     border-radius: 36px 36px 36px 5px;
-    position: relative; /* set to relative to position the image */
+    position: relative;
 }
 
 .contained-image {
-    position: absolute; /* position image absolutely within the container */
-    top: -50px;  /* adjust as needed to position the top part of the image outside the square */
-    left: 30%;  /* centers the image horizontally */
-    transform: translateX(-50%); /* ensures the image remains centered */
-    height: 250px; /* adjust based on the desired size of the image */
+    position: absolute;
+    top: -50px;
+    left: 30%;
+    transform: translateX(-50%);
+    height: 250px;
     width: auto;
 }
 
+
+.third-card-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 70px;
+    position: relative;
+
+    background-color: #006A42;
+
+}
+
+.third-card-contained-square {
+    position: absolute;
+    top: -20px;
+    left: 25%;
+    transform: translateX(-50%);
+    height: 15%;
+    width: 30%;
+    background-color: #E6F9DC;
+    border-radius: 25px 25px 5px 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.thirdCard-contained-image {
+    max-width: 100%;
+    height: 100%;
+
+}
+.cards-container {
+    display: flex;
+    gap: 5px; /* Space between cards */
+    margin-left: 40px;
+
+}
+.card {
+    background: linear-gradient(to bottom, #00C1B4, #006A42);
+    width: 30%; /* Allows for 3 cards to fit side by side, accounting for the gap */
+    box-sizing: border-box;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden; /* Ensures child elements do not overflow the rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif; /* You can choose any font family you prefer */
+}
+
+.card-header {
+    background-color: #FFFFFF;
+    color: #00A89C;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-content {
+    padding: 20px 0;
+}
+
+.card-price {
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.card-price span {
+    margin-right: 5px;
+}
+
+.card-price sup {
+    font-size: 16px;
+}
+
+.price-period {
+    font-size: 14px;
+}
+
+.buy-button {
+    background-color: #00A89C;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 40px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.buy-button:hover {
+    background-color: #008577;
+}
+.fourth-card-container {
+
+    background-color: #6458DE;
+
+    padding: 50px;
+    border-top-left-radius: 60px;  /* Adjust as needed */
+    border-top-right-radius: 60px; /* Adjust as needed */
+}
