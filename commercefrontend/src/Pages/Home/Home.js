@@ -6,7 +6,6 @@ import PlansImage from '../../Images/Home/0bf7feb3b117c6b6924558ddaf9957cf-remov
 import BuildStoreImage from '../../Images/Home/undraw_web_shopping_re_owap.png'; // adjust the path according to your project structure
 import ExploreAndSelectImage from '../../Images/Home/undraw_Window_shopping_re_0kbm-removebg-preview.png'; // adjust the path according to your project structure
 import RedirectToWppImage from '../../Images/Home/whatsapp-no-ecommerce.jpg'; // adjust the path according to your project structure
-import AllPlans from '../../Images/Home/subscription-plans-with-account-features-list-included-options-price_189959-1155__1_-removebg-preview.png'; // adjust the path according to your project structure
 
 function Home() {
 
