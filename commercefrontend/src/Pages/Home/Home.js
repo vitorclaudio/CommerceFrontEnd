@@ -153,7 +153,7 @@ function Home() {
                 <div className='fourth-card-container'>
                     <div style={{color: 'white', fontSize:'250%', fontWeight:'bolder', marginBottom:'10px'}}>Junte-se a nós</div>
                     <div style={{color: 'white', fontSize:'120%', fontWeight:'bold', marginBottom:'10px'}}>Exponha seus produtos e</div>
-                    <div style={{color: 'white', fontSize:'100%'}}>Exponha seus produtos e</div>
+                    <div style={{color: 'white', fontSize:'100%'}}>serviços do seu catálogo virtual</div>
                 </div>
 
             </div>
