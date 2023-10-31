@@ -1,0 +1,86 @@
+.login-container {
+    position: fixed;    /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);    /* Dark transparent background for the overlay effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;    /* Ensure it overlays other elements */
+}
+.login-exit-button {
+
+    padding: 5px;
+    width: 10%;
+    position: absolute; /* This will position the button relative to the .login-box */
+    left: 10px;         /* Adjust as needed for horizontal positioning from the left */
+    top: 10px;          /* Adjust as needed for vertical positioning from the top */
+background-color: white;
+    color: black;
+}
+
+
+
+.login-box {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;           /* You can adjust this if you feel the modal is too small */
+    max-height: 90vh;       /* This will ensure it takes up to 90% of the viewport height */
+    overflow-y: auto;       /* It will show a scrollbar if content exceeds */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-radius: 10px;
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.help-text {
+    margin: 10px 0;
+}
+
+.help-text p {
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.help-text a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}

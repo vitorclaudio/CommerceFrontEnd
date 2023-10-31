@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.css';
 import logoImageUrl from '../../Images/Logo/logoProvisoria.png';
 import handImage from '../../Images/Home/handphone.webp'; // adjust the path according to your project structure
@@ -6,10 +6,12 @@ import PlansImage from '../../Images/Home/planosexemplo.png'; // adjust the path
 import BuildStoreImage from '../../Images/Home/pickshop.png'; // adjust the path according to your project structure
 import ExploreAndSelectImage from '../../Images/Home/shop.png'; // adjust the path according to your project structure
 import RedirectToWppImage from '../../Images/Home/whatsapp-no-ecommerce.jpg'; // adjust the path according to your project structure
+import Login from './../Login/Login'; // adjust path if needed
 
 
 function Home() {
 
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     return (
         <div className="app-container">
@@ -29,7 +31,7 @@ function Home() {
                     <div className="headerTextInscrevaSe" href="#">Se inscrever</div>
                 </nav>
                 <nav>
-                    <button href="#">Entrar</button>
+                    <button onClick={() => setShowLoginModal(true)}>Entrar</button>
                 </nav>
 
 
@@ -187,6 +189,9 @@ function Home() {
                 </div>
 
             </footer>
+
+            {showLoginModal && <Login onClose={() => setShowLoginModal(false)} />}
+
         </div>
     );
 }
