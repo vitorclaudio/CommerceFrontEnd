@@ -23,6 +23,7 @@
 .headerTextInscrevaSe {
     font-size: 13px;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .small-image {
@@ -320,7 +321,7 @@ zoom: 90%;
     .headerTextInscrevaSe {
         font-size: 17px;
         margin-left: 15px;
-
+        cursor: pointer;
     }
 
     .small-image {

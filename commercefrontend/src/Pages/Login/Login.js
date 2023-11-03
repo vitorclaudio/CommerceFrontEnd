@@ -10,6 +10,7 @@ function Login({ onClose }) {
     const [email, setEmail] = useState(''); // State to hold email value
     const [password, setPassword] = useState(''); // State to hold password value
     const [loginMessage, setLoginMessage] = useState(''); // State to hold login message
+    const [loginMessageErro, setLoginMessageErro] = useState(''); // State to hold login message
 
     const handleClickOutside = (e) => {
         if (e.target === containerRef.current) {
@@ -24,10 +25,10 @@ function Login({ onClose }) {
             if (response) { // If response is not null
                 setLoginMessage('Login foi um sucesso.'); // Set success message
             } else {
-                setLoginMessage('O Login falhou. Por favor cheque seu usuário e senha'); // Set error message
+                setLoginMessageErro('O Login falhou. Por favor cheque seu usuário e senha'); // Set error message
             }
         } catch (error) {
-            setLoginMessage('Ocorreu um erro, por favor entre mais tarde.'); // Set error message for exceptions
+            setLoginMessageErro('Ocorreu um erro, por favor entre mais tarde.'); // Set error message for exceptions
         }
     };
 
@@ -60,6 +61,8 @@ function Login({ onClose }) {
 
                 <div className="message-container">
                     {loginMessage && <p className="login-message">{loginMessage}</p>}
+                    {loginMessageErro && <p className="login-message-erro">{loginMessageErro}</p>}
+
                 </div>
             </div>
         </div>

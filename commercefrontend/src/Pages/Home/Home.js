@@ -7,11 +7,13 @@ import BuildStoreImage from '../../Images/Home/pickshop.png'; // adjust the path
 import ExploreAndSelectImage from '../../Images/Home/shop.png'; // adjust the path according to your project structure
 import RedirectToWppImage from '../../Images/Home/whatsapp-no-ecommerce.jpg'; // adjust the path according to your project structure
 import Login from './../Login/Login'; // adjust path if needed
+import SignUp from './../SignUp/SignUp'; // adjust path if needed
 
 
 function Home() {
 
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignUpModal, setShowSignUpModal] = useState(false);
 
     return (
         <div className="app-container">
@@ -28,7 +30,7 @@ function Home() {
                 </nav>
 
                 <nav>
-                    <div className="headerTextInscrevaSe" href="#">Se inscrever</div>
+                    <div className="headerTextInscrevaSe" onClick={() => setShowSignUpModal(true)} >Se inscrever</div>
                 </nav>
                 <nav>
                     <button onClick={() => setShowLoginModal(true)}>Entrar</button>
@@ -191,6 +193,7 @@ function Home() {
             </footer>
 
             {showLoginModal && <Login onClose={() => setShowLoginModal(false)} />}
+            {showSignUpModal && <SignUp onClose={() => setShowSignUpModal(false)} />}
 
         </div>
     );
