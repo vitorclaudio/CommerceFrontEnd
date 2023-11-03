@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:55922/api";
+//const BASE_URL = "http://localhost:55922/api";
+const BASE_URL = "https://commerceproject-8edb84ea86e0.herokuapp.com/api";
 
 export const fetchUserById = async (id) => {
     const response = await fetch(`${BASE_URL}/Authentication/${id}`);
@@ -9,7 +10,7 @@ export const fetchUserById = async (id) => {
 }
 
 export const SearchUserByLoginAndPassword = async (login, password) => {
-    console.log('entrou')
+    console.log(password)
     const response = await fetch(`${BASE_URL}/Authentication/${login}/${password}`);
     if (!response.ok) {
         throw new Error('Failed to fetch user');

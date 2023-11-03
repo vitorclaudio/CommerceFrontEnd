@@ -9,6 +9,7 @@ function Login({ onClose }) {
     const containerRef = useRef(null);  // Create a ref for the container
     const [email, setEmail] = useState(''); // State to hold email value
     const [password, setPassword] = useState(''); // State to hold password value
+    const [loginMessage, setLoginMessage] = useState(''); // State to hold login message
 
     const handleClickOutside = (e) => {
         if (e.target === containerRef.current) {
@@ -17,9 +18,17 @@ function Login({ onClose }) {
     };
 
     const handleLogin = async () => {
-        const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-        console.log(email, hashedPassword);
-        await SearchUserByLoginAndPassword(email, hashedPassword);
+        try {
+            const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+            const response = await SearchUserByLoginAndPassword(email, hashedPassword);
+            if (response) { // If response is not null
+                setLoginMessage('Login foi um sucesso.'); // Set success message
+            } else {
+                setLoginMessage('O Login falhou. Por favor cheque seu usuário e senha'); // Set error message
+            }
+        } catch (error) {
+            setLoginMessage('Ocorreu um erro, por favor entre mais tarde.'); // Set error message for exceptions
+        }
     };
 
     return (
@@ -48,6 +57,10 @@ function Login({ onClose }) {
                     <p><a href="/forgot">Esqueceu sua senha?</a></p>
                 </div>
                 <button onClick={handleLogin}>Entrar</button>
+
+                <div className="message-container">
+                    {loginMessage && <p className="login-message">{loginMessage}</p>}
+                </div>
             </div>
         </div>
     );

@@ -84,3 +84,17 @@ button:hover {
 .help-text a:hover {
     text-decoration: underline;
 }
+
+
+.message-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-message {
+    color: blue;
+}
+
+.login-message.success {
+       color: blue;
+}
