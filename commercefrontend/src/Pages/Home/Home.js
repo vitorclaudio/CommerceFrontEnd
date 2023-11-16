@@ -14,6 +14,12 @@ function Home() {
 
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignUpModal, setShowSignUpModal] = useState(false);
+    const [loginResponse, setLoginResponse] = useState(null);
+    const handleLoginSuccess = (response) => {
+        setLoginResponse(response);
+        setShowLoginModal(false);
+        // You can also navigate to Manager or change UI based on response
+    };
 
     return (
         <div className="app-container">

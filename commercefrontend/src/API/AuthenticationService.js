@@ -1,5 +1,5 @@
-const BASE_URL = "http://localhost:55922/api";
-//const BASE_URL = "https://commerceproject-8edb84ea86e0.herokuapp.com/api";
+//const BASE_URL = "http://localhost:55922/api";
+const BASE_URL = "https://commerceproject-8edb84ea86e0.herokuapp.com/api";
 
 export const fetchUserById = async (id) => {
     const response = await fetch(`${BASE_URL}/Authentication/${id}`);

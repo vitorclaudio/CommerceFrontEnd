@@ -3,14 +3,16 @@ import CryptoJS from 'crypto-js';
 import './Login.css';
 import '../../API/AuthenticationService';
 import {SearchUserByLoginAndPassword} from "../../API/AuthenticationService";
+import { useLocation } from 'wouter';
 
-function Login({ onClose }) {
+function Login({ onClose, onLoginSuccess }) {
 
     const containerRef = useRef(null);  // Create a ref for the container
     const [email, setEmail] = useState(''); // State to hold email value
     const [password, setPassword] = useState(''); // State to hold password value
     const [loginMessage, setLoginMessage] = useState(''); // State to hold login message
     const [loginMessageErro, setLoginMessageErro] = useState(''); // State to hold login message
+    const [, setLocation] = useLocation(); // Wouter hook for navigation
 
     const handleClickOutside = (e) => {
         if (e.target === containerRef.current) {
@@ -24,6 +26,8 @@ function Login({ onClose }) {
             const response = await SearchUserByLoginAndPassword(email, hashedPassword);
             if (response) { // If response is not null
                 setLoginMessage('Login foi um sucesso.'); // Set success message
+                setLocation('/manager'); // Navigate to Manager
+
             } else {
                 setLoginMessageErro('O Login falhou. Por favor cheque seu usuário e senha'); // Set error message
             }
