@@ -8,7 +8,8 @@ function Manager() {
 
     return (
         <div style={{backgroundColor:'#D9D9D9'}}>
-teste
+
+
         </div>
     );
 }
