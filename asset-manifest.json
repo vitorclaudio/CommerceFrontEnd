@@ -1,23 +1,30 @@
 {
   "files": {
-    "main.css": "/CommerceFrontEnd/static/css/main.2d41812c.chunk.css",
-    "main.js": "/CommerceFrontEnd/static/js/main.e2f49c78.chunk.js",
-    "main.js.map": "/CommerceFrontEnd/static/js/main.e2f49c78.chunk.js.map",
-    "runtime~main.js": "/CommerceFrontEnd/static/js/runtime~main.e7189883.js",
-    "runtime~main.js.map": "/CommerceFrontEnd/static/js/runtime~main.e7189883.js.map",
-    "static/js/2.8434142e.chunk.js": "/CommerceFrontEnd/static/js/2.8434142e.chunk.js",
-    "static/js/2.8434142e.chunk.js.map": "/CommerceFrontEnd/static/js/2.8434142e.chunk.js.map",
-    "static/js/3.f3a4d0fe.chunk.js": "/CommerceFrontEnd/static/js/3.f3a4d0fe.chunk.js",
-    "static/js/3.f3a4d0fe.chunk.js.map": "/CommerceFrontEnd/static/js/3.f3a4d0fe.chunk.js.map",
+    "main.css": "/CommerceFrontEnd/static/css/main.b62d883c.chunk.css",
+    "main.js": "/CommerceFrontEnd/static/js/main.4c0a7d74.chunk.js",
+    "main.js.map": "/CommerceFrontEnd/static/js/main.4c0a7d74.chunk.js.map",
+    "runtime-main.js": "/CommerceFrontEnd/static/js/runtime-main.0b887dcc.js",
+    "runtime-main.js.map": "/CommerceFrontEnd/static/js/runtime-main.0b887dcc.js.map",
+    "static/js/2.233617a9.chunk.js": "/CommerceFrontEnd/static/js/2.233617a9.chunk.js",
+    "static/js/2.233617a9.chunk.js.map": "/CommerceFrontEnd/static/js/2.233617a9.chunk.js.map",
+    "static/js/3.2d419b93.chunk.js": "/CommerceFrontEnd/static/js/3.2d419b93.chunk.js",
+    "static/js/3.2d419b93.chunk.js.map": "/CommerceFrontEnd/static/js/3.2d419b93.chunk.js.map",
     "index.html": "/CommerceFrontEnd/index.html",
-    "precache-manifest.25474f8a0318efa7176e4dff57b175d7.js": "/CommerceFrontEnd/precache-manifest.25474f8a0318efa7176e4dff57b175d7.js",
+    "precache-manifest.df294de8ebeca52a66e962c878c4e59c.js": "/CommerceFrontEnd/precache-manifest.df294de8ebeca52a66e962c878c4e59c.js",
     "service-worker.js": "/CommerceFrontEnd/service-worker.js",
-    "static/css/main.2d41812c.chunk.css.map": "/CommerceFrontEnd/static/css/main.2d41812c.chunk.css.map",
+    "static/css/main.b62d883c.chunk.css.map": "/CommerceFrontEnd/static/css/main.b62d883c.chunk.css.map",
+    "static/js/2.233617a9.chunk.js.LICENSE.txt": "/CommerceFrontEnd/static/js/2.233617a9.chunk.js.LICENSE.txt",
     "static/media/handphone.webp": "/CommerceFrontEnd/static/media/handphone.029760cd.webp",
     "static/media/logoProvisoria.png": "/CommerceFrontEnd/static/media/logoProvisoria.c9aa09d1.png",
     "static/media/pickshop.png": "/CommerceFrontEnd/static/media/pickshop.0215dc75.png",
     "static/media/planosexemplo.png": "/CommerceFrontEnd/static/media/planosexemplo.0c3b75f0.png",
     "static/media/shop.png": "/CommerceFrontEnd/static/media/shop.332e95bd.png",
     "static/media/whatsapp-no-ecommerce.jpg": "/CommerceFrontEnd/static/media/whatsapp-no-ecommerce.cfee4a90.jpg"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b887dcc.js",
+    "static/js/2.233617a9.chunk.js",
+    "static/css/main.b62d883c.chunk.css",
+    "static/js/main.4c0a7d74.chunk.js"
+  ]
 }
