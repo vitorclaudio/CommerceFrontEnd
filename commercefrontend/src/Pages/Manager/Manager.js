@@ -12,7 +12,7 @@ const responseData = {
     },
     groupItem: [
         {
-            id: '2',
+            id: '1',
             name: 'Acessórios camionete',
             store_id: '1'
         },
@@ -20,19 +20,19 @@ const responseData = {
             name: 'Acessórios moto',
             store_id: '1'
         },
-        { id: '2',
+        { id: '3',
             name: 'Acessórios moto',
             store_id: '1'
         },
-        { id: '2',
+        { id: '4',
             name: 'Acessórios moto',
             store_id: '1'
         },
-        { id: '2',
+        { id: '5',
             name: 'Capas de banco',
             store_id: '1'
         },
-        { id: '3',
+        { id: '6',
             name: 'Acessórios carro',
             store_id: '1'
         }
@@ -53,6 +53,7 @@ const responseData = {
                     item_id: '1'
                 }
             ]
+
         },
         {
             id: 1,
@@ -60,7 +61,7 @@ const responseData = {
             description: 'Pingente para rastreamento do animal a partir de GPS',
             value: 'R$ 200,00',
             store_id: '1',
-            groupItem_id: '1',
+            groupItem_id: '2',
             imageItem: [
                 {
                     id: '1',
@@ -76,7 +77,7 @@ const responseData = {
             description: 'Peruca engraçada para seu PET',
             value: 'R$ 120,00',
             store_id: '1',
-            groupItem_id: '1',
+            groupItem_id: '3',
             imageItem: [
                 {
                     id: '1',
@@ -88,19 +89,29 @@ const responseData = {
     ]
 };
 // Modal.js
-function Modal({ isOpen, onClose, product }) {
+function Modal({ isOpen, onClose, product, groupItems }) {
     const [item, setItem] = useState(product || {});
+    const [selectedGroupId, setSelectedGroupId] = useState(product?.groupItem_id || '');
 
     useEffect(() => {
         if (product) {
             setItem({
                 ...product,
-                // Formata o valor para incluir R$ se necessário
                 value: formatValue(product.value),
             });
+            setSelectedGroupId(product.groupItem_id || '');
+            console.log(product.groupItem_id || 'tem nada'); // Aqui você pode adicionar lógica para salvar o grupo
+
         }
     }, [product]);
 
+
+    const handleChangeGroup = (e) => {
+        // Atualiza o item com o novo groupItem_id selecionado
+        const newGroupId = e.target.value;
+        setSelectedGroupId(newGroupId);
+        setItem({ ...item, groupItem_id: newGroupId });
+    };
     const handleChange = (e, key) => {
         let value = e.target.value;
         if (key === 'value') {
@@ -139,6 +150,20 @@ function Modal({ isOpen, onClose, product }) {
                     onChange={(e) => handleChange(e, 'name')}
                     className="input-h1-modal"
                 />
+                <div style={{marginBottom: '20px'}}>
+                    <select
+                        value={selectedGroupId}
+                        onChange={handleChangeGroup}
+                        className="input-select-modal"
+                    >
+                        <option value="">{!item.groupItem_id ? 'Selecione um grupo' : 'Mudar grupo'}</option>
+                        {groupItems.map((group) => (
+                            <option key={group.id} value={group.id}>
+                                {group.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 <img src={item.imageItem && item.imageItem[0].url} alt={item.name} style={{width: "100%"}}/>
                 <textarea
                     placeholder="Coloque a descrição do seu item."
@@ -150,7 +175,7 @@ function Modal({ isOpen, onClose, product }) {
 
                 <div style={{display: 'flex', alignItems: 'center'}}>
 
-                    <input
+                <input
                         placeholder="Coloque o valor. Ex: R$ 100,00"
                         value={item.value ? `R$ ${item.value}` : ''}
                         onChange={(e) => handleChange(e, 'value')}
@@ -233,15 +258,26 @@ function ModalNewGroup({isOpen, onClose}) {
     );
 }
 
-function ModalAddProductCard({isOpen, onClose}) {
+function ModalAddProductCard({ isOpen, onClose, groupItems }) { // Adicione groupItems aqui
     const defaultItem = {
         name: '',
         description: '',
         value: '',
+        groupItem_id: '',
         imageItem: [{url: 'https://static.thenounproject.com/png/396915-200.png'}]
     };
-
     const [item, setItem] = useState(defaultItem);
+    const [selectedGroupId, setSelectedGroupId] = useState(''); // Isso garante que o estado seja manipulado corretamente
+    useEffect(() => {
+        // Resetar o item e o selectedGroupId quando o modal é fechado/aberto
+        setItem(defaultItem);
+        setSelectedGroupId('');
+    }, [isOpen]);
+    const handleChangeGroup = (e) => {
+        const newGroupId = e.target.value;
+        setSelectedGroupId(newGroupId);
+        setItem({ ...item, groupItem_id: newGroupId });
+    };
 
     const handleChange = (e, key) => {
         let value = e.target.value;
@@ -291,6 +327,24 @@ function ModalAddProductCard({isOpen, onClose}) {
                     onChange={(e) => handleChange(e, 'name')}
                     className="input-h1-modal"
                 />
+                <div style={{marginBottom: '20px'}}>
+                    <select
+                        value={selectedGroupId}
+                        onChange={(e) => {
+                            const newGroupId = e.target.value;
+                            setSelectedGroupId(newGroupId);
+                            setItem({...item, groupItem_id: newGroupId});
+                        }}
+                        className="input-select-modal"
+                    >
+                        <option value="">Selecione um grupo</option>
+                        {groupItems.map((group) => (
+                            <option key={group.id} value={group.id}>
+                                {group.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 <img src={item.imageItem[0].url} alt={item.name} style={{width: "100%"}}/>
                 <textarea
                     placeholder={'Coloque a descrição do seu item.'}
@@ -302,13 +356,13 @@ function ModalAddProductCard({isOpen, onClose}) {
 
                 <div style={{alignItems: 'center'}}>
                     {item.value && (
-                        <div style={{marginLeft:'10px', display: 'flex', alignItems: 'center', marginBottom: '-27px'}}>
+                        <div style={{marginLeft: '10px', display: 'flex', alignItems: 'center', marginBottom: '-27px'}}>
                             R$:
                         </div>
                     )}
 
 
-                    <div style={{ alignItems: 'center'}}>
+                    <div style={{alignItems: 'center'}}>
                         <input
                             placeholder={'Coloque o valor. Ex: R$ 100,00'}
                             value={item.value}
@@ -358,7 +412,7 @@ function ModalEditGroup({isOpen, onClose, group}) {
             <div className="modal-content">
 
                 <div style={{display: 'flex', marginBottom: '25px', justifyContent: 'start'}}>
-                    <div className="close-button-container">
+                <div className="close-button-container">
                         <button onClick={onClose} className="close-button">
                             &times; {/* Símbolo de multiplicação usado como ícone de fechar */}
                         </button>
@@ -429,12 +483,13 @@ function Manager() {
     /* MODAL ITEM SECTION */
 
 
-    const openModal = (name, description, value, imageItem) => {
+    const openModal = (name, description, value, imageItem, groupItem_id) => {
         const product = {
             name,         // Equivalente a name: name,
             description,  // Equivalente a description: description,
             value,        // Equivalente a value: value,
-            imageItem      // Equivalente a imageUrl: imageUrl
+            imageItem,
+            groupItem_id
         };
         setSelectedProduct(product);
         setModalOpen(true);
@@ -477,9 +532,9 @@ function Manager() {
             <div className="add-product-card-text-subtitle">item</div>
         </div>
     );
-    const ProductCard = ({name, description, value, imageItem}) => (
-        <div className="product-card">
-            <img src={imageItem[0].url} alt={name} className="product-image" onClick={() => openModal(name, description, value, imageItem)}/>
+    const ProductCard = ({name, description, value, imageItem, groupItem_id}) => (
+        <div className="product-card" onClick={() => openModal(name, description, value, imageItem, groupItem_id)}>
+            <img src={imageItem[0].url} alt={name} className="product-image" />
             <h3>{name}</h3>
             <p>{description}</p>
             <p className="value">{value}</p>
@@ -544,10 +599,10 @@ function Manager() {
                 </div>
 
             </div>
-            <Modal isOpen={modalOpen} onClose={closeModal} product={selectedProduct} />
+            <Modal isOpen={modalOpen} onClose={closeModal} product={selectedProduct} groupItems={responseData.groupItem} />
             <ModalNewGroup isOpen={modalNewGroupOpen} onClose={closeModalNewGroup} />
             <ModalEditGroup isOpen={modalEditGroupOpen} onClose={closeModalEditGroup} group={selectedGroup} />
-            <ModalAddProductCard isOpen={addProductModal} onClose={closeAddProductModal} />
+            <ModalAddProductCard isOpen={addProductModal} onClose={closeAddProductModal} groupItems={responseData.groupItem} />
 
 
         </div>

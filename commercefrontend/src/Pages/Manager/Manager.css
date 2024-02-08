@@ -124,6 +124,15 @@
     padding: 10px; /* Adiciona algum espaçamento interno */
 }
 
+.input-select-modal{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+    resize: none;
+    color: black;
+}
 .input-p-modal-value {
     font-size: 15px;
     border: none;
