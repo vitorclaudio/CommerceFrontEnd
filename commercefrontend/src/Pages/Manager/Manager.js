@@ -110,6 +110,15 @@ function formatValue(value) {
 
 function Manager() {
 
+    const [name, setName] = useState(responseData.store.name);
+    const [description, setDescription] = useState(responseData.store.description);
+
+    const [editTitleModalOpen, setEditTitleModalOpen] = useState(false);
+    // Inicialize tempTitle e tempDescription como strings vazias ou outro valor inicial.
+
+
+
+
     const [groupItems, setGroupItems] = useState(responseData.groupItem);
     const [items, setItems] = useState(responseData.item);
     const [modalOpen, setModalOpen] = useState(false);
@@ -117,8 +126,6 @@ function Manager() {
     /* MODAL NEW GROUP SECTION */
 
     const [modalNewGroupOpen, setModalNewGroupOpen] = useState(false);
-
-
 
 
     function Modal({ isOpen, onClose, product, groupItems }) {
@@ -654,10 +661,6 @@ function Manager() {
 
     /* FIM: MODAL ITEM SECTION */
 
-    const [name, setName] = useState(responseData.store.name); // Valor atual do título
-    const [prevName, setPrevName] = useState(name); // Valor anterior do título
-    const [description, setDescription] = useState(responseData.store.description);
-    const [prevDescription, setPrevDescription] = useState(description); // Valor anterior do título
 
 
 
@@ -700,35 +703,76 @@ function Manager() {
         }
     };
 
-  const updateStore = () => {
-
-      console.log(name);
-      console.log(prevName);
-      console.log(description);
-      console.log(prevDescription);
-
-      if (name !== prevName || description !== prevDescription) {
-          let updatedStore = {
-              id: responseData.store.id,
-              name: name,
-              description: description,
-              imageUrl: responseData.store.imageUrl,
-              user_id: responseData.store.user_id
-          };
-
-          UpdateStore(updatedStore)
-              .then(() => {
-                  console.log("Loja atualizada com sucesso.");
-                  // Atualiza os estados prevName e prevDescription após a atualização ser bem-sucedida
-                  setPrevName(name);
-                  setPrevDescription(description);
-                  responseData.store.name = name;
-                  responseData.store.description = description;
-              }).catch(error => console.error("Erro ao atualizar o título:", error));
-      }
-  };
 
 
+    function EditTitleModal({ isOpen, onClose, name, description, setName, setDescription, setEditTitleModalOpen }) {
+        const [tempTitle, setTempTitle] = useState(name);
+        const [tempDescription, setTempDescription] = useState(description);
+
+        // Atualiza os estados locais quando os valores externos mudam
+        useEffect(() => {
+            setTempTitle(name);
+            setTempDescription(description);
+        }, [name, description]);
+
+        const updateStore = () => {
+            if (tempTitle !== name || tempDescription !== description) {
+                let updatedStore = {
+                    id: responseData.store.id,
+                    name: tempTitle,
+                    description: tempDescription,
+                    imageUrl: responseData.store.imageUrl,
+                    user_id: responseData.store.user_id
+                };
+
+                UpdateStore(updatedStore)
+                    .then(() => {
+                        console.log("Loja atualizada com sucesso.");
+                        setName(tempTitle);
+                        setDescription(tempDescription);
+                        responseData.store.name = tempTitle;
+                        responseData.store.description = tempDescription;
+                    }).catch(error => console.error("Erro ao atualizar a loja:", error));
+            }
+            onClose(); // Apenas fecha o modal, sem resetar os estados globais
+        };
+
+        if (!isOpen) return null;
+
+        return (
+            <div className="modal-overlay">
+                <div className="modal-content">
+                    <div className="close-button-container">
+                        <button onClick={onClose} className="close-button">&times;</button>
+                    </div>
+
+                    <div className="div-inputs" style={{flexDirection: 'column'}}>
+                    <textarea
+                        placeholder="Título"
+                        value={tempTitle}
+                        onChange={(e) => setTempTitle(e.target.value)}
+                        className="input-h1-store-modal"
+                    />
+                        <textarea
+                            placeholder="Escreva a descrição do seu catálogo"
+                            value={tempDescription}
+                            onChange={(e) => setTempDescription(e.target.value)}
+                            className="input-p"
+                        />
+                    </div>
+
+                    <button onClick={updateStore} className="save-button">Salvar</button>
+                </div>
+            </div>
+        );
+    }
+
+
+    const openEditTitleModal = () => {
+        // Atualiza estados temporários com os valores atuais antes de abrir o modal
+
+        setEditTitleModalOpen(true);
+    };
 
     return (
         <div className="manager">
@@ -744,17 +788,17 @@ function Manager() {
                  <textarea
                      placeholder={'Titulo'}
                      value={name}
-                     onChange={(e) => setName(e.target.value)}
-                     onBlur={updateStore}
+                     onClick={openEditTitleModal}
                      className="input-h1"
                  />
                     <textarea
                         placeholder={'Escreva a descrição do seu catálogo'}
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        onBlur={updateStore}
+                        onClick={openEditTitleModal}
                         className="input-p"/>
                 </div>
+
+
 
                 <div className="container-imagem" style={{flexDirection: 'column'}}>
                     <img src="https://i.pinimg.com/originals/6a/97/3a/6a973acc6f9e9fb337ba5509bb77e58e.jpg"
@@ -784,7 +828,15 @@ function Manager() {
             <ModalNewGroup isOpen={modalNewGroupOpen} onClose={closeModalNewGroup} />
             <ModalEditGroup isOpen={modalEditGroupOpen} onClose={closeModalEditGroup} group={selectedGroup} />
             <ModalAddProductCard isOpen={addProductModal} onClose={closeAddProductModal} groupItems={groupItems} />
-
+            <EditTitleModal
+                isOpen={editTitleModalOpen}
+                onClose={() => setEditTitleModalOpen(false)}
+                name={name}
+                description={description}
+                setName={setName}
+                setDescription={setDescription}
+                setEditTitleModalOpen={setEditTitleModalOpen}
+            />
 
         </div>
     );

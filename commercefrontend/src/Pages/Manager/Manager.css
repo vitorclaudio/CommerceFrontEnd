@@ -54,6 +54,17 @@
     resize: none; /* Impede que o usuário redimensione o campo */
     overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
 }
+.input-h1-store-modal {
+    margin-top:40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    background-color: transparent;
+    resize: none; /* Impede que o usuário redimensione o campo */
+    overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
+}
 
 .input-h1-modal {
     font-size: 20px;
