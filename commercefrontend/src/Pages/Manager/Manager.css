@@ -1,26 +1,24 @@
-/* App.css */
 .App {
     font-family: 'Sua fonte aqui', sans-serif;
     background-color: #F7FAFF;
 }
 
 .category-container {
-    display: flex; /* Mantém todos os botões em linha */
-    flex-wrap: nowrap; /* Evita que os botões sejam empilhados verticalmente */
+    display: flex;
+    flex-wrap: nowrap;
     padding: 20px;
-    overflow-x: auto; /* Adiciona rolagem horizontal quando necessário */
+    overflow-x: auto;
 
-    -webkit-overflow-scrolling: touch; /* Permite rolagem inercial em dispositivos tácteis */
+    -webkit-overflow-scrolling: touch;
 }
 
 
 .div-inputs {
-    width: 50%; /* 70% da largura do pai */
+    width: 50%;
 }
 
 
 
-/* Header.css */
 .app-header {
     text-align: center;
     height: 200px;
@@ -33,14 +31,12 @@
 
 
 }
-/* Adicione isso ao seu CSS */
 .ajuste-imagem {
-    width: 100%; /* Faz a imagem expandir para cobrir a largura do contêiner */
-    height: 100%; /* Faz a imagem expandir para cobrir a altura do contêiner */
-    object-fit: fill; /* Mantém as proporções e cobre todo o espaço disponível, cortando o excesso */
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
-/* Estilos para input que parece com h1 */
-/* Estilos para textarea que parece com h1 */
+
 .input-h1 {
     margin-top:40px;
     font-size: 20px;
@@ -51,8 +47,8 @@
     height: 40px;
     margin-left: 10px;
     background-color: transparent;
-    resize: none; /* Impede que o usuário redimensione o campo */
-    overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
+    resize: none;
+    overflow: hidden;
 }
 .input-h1-store-modal {
     margin-top:40px;
@@ -62,8 +58,8 @@
     outline: none;
     margin-left: 10px;
     background-color: transparent;
-    resize: none; /* Impede que o usuário redimensione o campo */
-    overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
+    resize: none;
+    overflow: hidden;
 }
 
 .input-h1-modal {
@@ -76,8 +72,8 @@
     text-align: center;
     margin-left: 10px;
     background-color: transparent;
-    resize: none; /* Impede que o usuário redimensione o campo */
-    overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
+    resize: none;
+    overflow: hidden;
 }
 
 .input-modal {
@@ -88,11 +84,10 @@
     width: 90%;
     height: 40px;
     background-color: transparent;
-    resize: none; /* Impede que o usuário redimensione o campo */
-    overflow: hidden; /* Adiciona barras de rolagem quando o texto exceder a área */
+    resize: none;
+    overflow: hidden;
 }
 
-/* Estilos para textarea que parece com p */
 .input-p {
     margin-left: 10px;
     font-size: 10px;
@@ -129,10 +124,10 @@
     outline: none;
     width: 90%;
     background-color: transparent;
-    overflow: hidden; /* Previne a barra de rolagem */
-    resize: vertical; /* Permite que o usuário ajuste a altura se necessário */
+    overflow: hidden;
+    resize: vertical;
     color: black;
-    padding: 10px; /* Adiciona algum espaçamento interno */
+    padding: 10px;
 }
 
 .input-select-modal{
@@ -156,21 +151,21 @@
 }
 
 .container-imagem {
-    width: 50%; /* 30% da largura do pai */
-    height: 200px; /* ou qualquer altura que você deseja */
-    overflow: hidden; /* Isso impede que a imagem exceda a div */
+    width: 50%;
+    height: 200px;
+    overflow: hidden;
     border-radius: 30px;
 
 
 }
 .logo {
-    width: 50px; /* Ajuste conforme o tamanho do seu logo */
+    width: 50px;
 }
 .add-category-button-container {
-    display: flex; /* Define o container como um flex container */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100%; /* Certifique-se de que o container tenha altura definida */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
 }
 
@@ -178,16 +173,16 @@
     background-color: #D9D9D9;
     color: black;
     border: none;
-    width: 22px; /* Garante que os botões não fiquem muito estreitos */
+    width: 22px;
     white-space: nowrap;
     height: 22px;
     margin: 5px;
     border-radius: 100%;
     transition: background-color 0.3s, color 0.3s;
 
-    display: flex; /* Usa flexbox para centralizar o texto */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* CategoryButton.css */
@@ -195,43 +190,39 @@
     background-color: #D9D9D9;
     color: black;
     border: none;
-    padding: 10px 25px; /* Aumente o padding horizontal conforme necessário */
+    padding: 10px 25px;
     height: 22px;
-    min-width: 200px; /* Ajuste conforme necessário */
+    min-width: 200px;
 
     margin: 5px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 
-    display: flex; /* Usa flexbox para centralizar o texto */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-/* Muda a cor de fundo e do texto quando o mouse passa por cima */
 .category-button:hover {
-    background-color: #40475E; /* Nova cor de fundo */
-    color: #FFFFFF; /* Nova cor do texto */
+    background-color: #40475E;
+    color: #FFFFFF;
 }
-
-/* Muda a cor de fundo e do texto quando o botão está sendo clicado */
 .category-button:active {
-    background-color: #40475E; /* Mantém a cor de fundo do hover */
-    color: #FFFFFF; /* Mantém a cor do texto do hover */
+    background-color: #40475E;
+    color: #FFFFFF;
 }
 
 .manager {
-    max-width: 100vw; /* 100% da largura da viewport */
-    overflow-x: hidden; /* Esconde qualquer overflow horizontal */
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 .product-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens passem para a próxima linha quando não há espaço suficiente */
-    justify-content: space-evenly; /* Centraliza os cartões quando não ocupam toda a largura */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-    /*align-items: flex-start;*/ /* Alinha itens ao topo */
-    gap: 20px; /* Espaçamento entre os cartões */
+
+    gap: 20px;
 }
 
 
@@ -239,34 +230,34 @@
     background-color: white;
     padding: 10px 10px;
     border-radius: 20px;
-    object-fit: cover; /* Mantém as proporções e cobre todo o espaço disponível, cortando o excesso */
+    object-fit: cover;
 
-    width: 40%; /* Define a largura para 50% menos a metade do espaçamento, assim dois cartões cabem lado a lado com um espaçamento uniforme */
+    width: 40%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .product-card-empty {
     background-color: #F7FAFF;
     padding: 10px 10px;
     border-radius: 20px;
-    object-fit: cover; /* Mantém as proporções e cobre todo o espaço disponível, cortando o excesso */
+    object-fit: cover;
 
-    width: 40%; /* Define a largura para 50% menos a metade do espaçamento, assim dois cartões cabem lado a lado com um espaçamento uniforme */
+    width: 40%;
 }
 .add-product-card {
-    display: flex; /* Define o contêiner como um flex container */
-    flex-direction: column; /* Empilha os itens verticalmente */
-    justify-content: center; /* Centraliza o conteúdo ao longo do eixo principal (vertical) */
-    align-items: center; /* Centraliza o conteúdo ao longo do eixo cruzado (horizontal) */
-    text-align: center; /* Assegura que o texto dentro dos itens também esteja centralizado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 40%; /* Ajuste conforme necessário */
+    width: 40%;
 }
 .add-product-card:hover {
-    background-color: lightgrey; /* Define a cor de fundo para cinza claro quando o mouse está sobre */
-    transition: background-color 0.3s; /* Adiciona um efeito de transição suave */
+    background-color: lightgrey;
+    transition: background-color 0.3s;
 }
 
 .add-product-card-text-title {
@@ -276,7 +267,7 @@
     font-size: 25px;
 }
 .product-image {
-    width: 100%; /* Ajuste conforme o tamanho das imagens dos produtos */
+    width: 100%;
     border-radius: 20px;
 }
 
@@ -304,4 +295,134 @@
     max-width: 500px;
     width: 75%;
 }
+.modal-image {
 
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .modal-image {
+
+        width: 100%;
+    }
+    .app-header {
+        text-align: center;
+        height: 300px;
+        width: 700px;
+        background-color: #EDECEC;
+        margin-top: 30px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .container-imagem {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 30px;
+
+
+    }
+    .input-h1 {
+        margin-top:40px;
+        font-size: 30px;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        width: 90%;
+        height: 40px;
+        margin-left: 10px;
+        background-color: transparent;
+        resize: none;
+        overflow: hidden;
+    }
+
+    .input-p {
+        margin-left: 10px;
+        font-size: 12px;
+        height: 70px;
+        border: none;
+        outline: none;
+        width: 90%;
+        background-color: transparent;
+        resize: none;
+        color: #8E8585;
+    }
+    .add-product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 20%;
+
+    }
+    .product-card {
+        background-color: white;
+        padding: 10px 10px;
+        border-radius: 20px;
+        object-fit: cover;
+        width: 20%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 200px;
+        width: 75%;
+    }
+
+    .product-card-empty {
+        background-color: #F7FAFF;
+        padding: 10px 10px;
+        border-radius: 20px;
+        object-fit: cover;
+
+        width: 45%;
+    }
+
+    .close-button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgba(211, 211, 211, 0.5);
+    }
+    .input-h1-modal {
+        font-size: 15px;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        width: 80%;
+        height: 20px;
+        text-align: center;
+        margin-left: 10px;
+        background-color: transparent;
+        resize: none;
+        overflow: hidden;
+    }
+    .input-select-modal{
+        font-size: 15px;
+        border: none;
+        outline: none;
+        width: 100%;
+        background-color: transparent;
+        resize: none;
+        color: black;
+    }
+}

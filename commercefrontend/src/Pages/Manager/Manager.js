@@ -116,9 +116,6 @@ function Manager() {
     const [editTitleModalOpen, setEditTitleModalOpen] = useState(false);
     // Inicialize tempTitle e tempDescription como strings vazias ou outro valor inicial.
 
-
-
-
     const [groupItems, setGroupItems] = useState(responseData.groupItem);
     const [items, setItems] = useState(responseData.item);
     const [modalOpen, setModalOpen] = useState(false);
@@ -126,8 +123,7 @@ function Manager() {
     /* MODAL NEW GROUP SECTION */
 
     const [modalNewGroupOpen, setModalNewGroupOpen] = useState(false);
-
-
+    
     function Modal({ isOpen, onClose, product, groupItems }) {
         const [item, setItem] = useState(product || {});
         const [selectedGroupId, setSelectedGroupId] = useState(product?.groupItem_id || '');
@@ -241,7 +237,8 @@ function Manager() {
                             ))}
                         </select>
                     </div>
-                    <img src={item.imageItem && item.imageItem[0].url} alt={item.name} style={{width: "100%"}}/>
+                        <img src={item.imageItem && item.imageItem[0].url} alt={item.name} className="modal-image"/>
+
                     <textarea
                         placeholder="Coloque a descrição do seu item."
                         value={item.description || ''}
@@ -388,7 +385,7 @@ function Manager() {
                             ))}
                         </select>
                     </div>
-                    <img src={item.imageItem[0].url} alt={item.name} style={{width: "100%"}}/>
+                    <img src={item.imageItem[0].url} alt={item.name} className="modal-image" />
                     <textarea
                         placeholder={'Coloque a descrição do seu item.'}
                         value={item.description}
@@ -781,6 +778,9 @@ function Manager() {
                 <div style={{marginLeft: '10px', fontSize: '13px'}}> APP</div>
 
             </div>
+
+            <div class="header-container">
+
             <header className="app-header">
                 {/* Imagem do logo seria aqui */}
 
@@ -805,6 +805,7 @@ function Manager() {
                          alt="Descrição da Imagem" className="ajuste-imagem"/>
                 </div>
             </header>
+            </div>
             <div className="category-container">
                 <AddCategoryButton text={'+'}/>
                 {groupItems.map((category, index) => (
